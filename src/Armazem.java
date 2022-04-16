@@ -1,4 +1,5 @@
 public class Armazem {
+    private Caixa caixas[];
     private int numCaixas = 0;
 
     // Getter
@@ -7,12 +8,11 @@ public class Armazem {
         return numCaixas;
     }
 
-    // Setter
-    
-    public void setNumCaixas(int numCaixas){
-        this.numCaixas = numCaixas;
+    // Adicionar uma caixa ao armazem
+
+    public void adicionaCaixa(Caixa caixa) {
+        caixas[numCaixas] = caixa;
+        this.numCaixas++;
     }
 
-
-    
 }

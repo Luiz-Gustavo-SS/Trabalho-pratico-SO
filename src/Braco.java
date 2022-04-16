@@ -1,8 +1,6 @@
 public class Braco {
     private int attribute6; // Nome do atributo não foi especificado
 
-    Caixa caixa = new Caixa();
-
     // Getter
 
     public int getAttribute6() {
@@ -17,12 +15,12 @@ public class Braco {
 
     // Métodos gerais
 
-    public void embalar(Produto produto){
+    public void embalar(Produto produto, Caixa caixa){
         caixa.addProduto(produto);
     }
 
     public void acionarMetodo(){
-        // ?
+        // ??
     }
     
 }

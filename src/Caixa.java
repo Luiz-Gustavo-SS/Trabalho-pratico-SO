@@ -13,7 +13,7 @@ public class Caixa {
     // Métodos gerais
 
     public void transicionaCaixa(Armazem armazem){
-        armazem.setNumCaixas(armazem.getNumCaixas() + 1);
+        armazem.adicionaCaixa(this);
         relogio.setTempoAtual(TRANSICAO);
 
     }
