@@ -1,3 +1,5 @@
+package entrega01_tp_so;
+
 public class Armazem {
     private Caixa caixas[];
     private int numCaixas = 0;

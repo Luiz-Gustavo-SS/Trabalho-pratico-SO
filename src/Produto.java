@@ -1,5 +1,7 @@
+package entrega01_tp_so;
+
 public class Produto{
-    private static final int VOLUME = 250; // Na UML, o atributo está como público
+    public static final int VOLUME = 250; // Na UML, o atributo est� como publico
 
     // Construtor
     public Produto(){}
