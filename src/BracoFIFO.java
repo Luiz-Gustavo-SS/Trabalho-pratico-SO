@@ -1,6 +1,6 @@
 package entrega01_tp_so;
 
-public class BracoRoundRobin extends Braco {
+public class BracoFIFO extends Braco {
 
 	@Override
 	public void acionarMetodo() {

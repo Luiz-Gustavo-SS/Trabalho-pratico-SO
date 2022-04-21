@@ -1,7 +1,9 @@
 package entrega01_tp_so;
 
 public abstract class Braco {
-    private Pedido pedidos[];
+	
+    private Pedido pedidos[] = new Pedido[200];
+    private int numPedidoAtual=0;
     Relogio relogio = new Relogio();
 
     // Getter
@@ -12,18 +14,23 @@ public abstract class Braco {
 
     // Setter
     
+    
+    public void addPedido(Pedido pedido) {
+    	this.pedidos[numPedidoAtual++]=pedido;
+    }
+    
+
+    // Metodos gerais
+    
     public void lerPedidos() {
     	
     }
-
-    // Metodos gerais
 
     public void embalar(Produto produto, Caixa caixa){
         if(caixa.getNumProdutos() < Caixa.MAX_PRODUTOS){
             caixa.addProduto(produto);
             relogio.passaTempo(Caixa.TEMPO_EMPACOTAR);
             caixa.setRelogio(relogio);
-            
         }
     }
 
