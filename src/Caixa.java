@@ -1,37 +1,35 @@
 package entrega01_tp_so;
 
 public class Caixa {
-    
+
 	// Constantes
-    public static final double TEMPO_EMPACOTAR = 5.0;
-    public static final double TRANSICAO = 0.5;
-    public static final int CAPACIDADE_MAXIMA = 5;
-    public static final int MAX_PRODUTOS = 20;
-    
-    // Atributos
-    private Produto produtos[];
-    private int numProdutos = 0;
+	public static final double TEMPO_EMPACOTAR = 5.0;
+	public static final double TRANSICAO = 0.5;
+	public static final int CAPACIDADE_MAXIMA = 5;
+	public static final int MAX_PRODUTOS = 20;
 
-    Relogio relogio = new Relogio();
+	// Atributos
+	private Produto produtos[];
+	private int numProdutos = 0;
 
-    // Metodos gerais
+	Relogio relogio = new Relogio();
 
-    public void transicionaCaixa(Armazem armazem){
-        armazem.adicionaCaixa(this);
-        relogio.setTempoAtual(TRANSICAO);
+	// Metodos gerais
 
-    }
+	public Relogio getRelogio() {
+		return relogio;
+	}
 
-    public void addProduto(Produto produto){
-        if(numProdutos < MAX_PRODUTOS){
-            produtos[numProdutos] = produto;
-            this.numProdutos++;
+	public void setRelogio(Relogio relogio) {
+		this.relogio = relogio;
+	}
 
-            relogio.setTempoAtual(TEMPO_EMPACOTAR);
-        }
-    }
+	public int getNumProdutos() {
+		return numProdutos;
+	}
 
+	public void addProduto(Produto produto) {
+		produtos[numProdutos++] = produto;
+	}
 
-
-    
 }

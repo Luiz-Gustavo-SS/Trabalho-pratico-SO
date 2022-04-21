@@ -1,22 +1,38 @@
 package entrega01_tp_so;
 
 public abstract class Braco {
-    private Pedido Pedidos; // Nome do atributo não foi especificado
+    private Pedido pedidos[];
+    Relogio relogio = new Relogio();
 
     // Getter
 
-    public Pedido getAttribute6() {
-        return Pedidos;
+    public Pedido[] getPedidos() {
+        return pedidos;
     }
 
     // Setter
+    
+    public void lerPedidos() {
+    	
+    }
 
     // Metodos gerais
 
     public void embalar(Produto produto, Caixa caixa){
-        caixa.addProduto(produto);
+        if(caixa.getNumProdutos() < Caixa.MAX_PRODUTOS){
+            caixa.addProduto(produto);
+            relogio.passaTempo(Caixa.TEMPO_EMPACOTAR);
+            caixa.setRelogio(relogio);
+            
+        }
     }
 
     public abstract void acionarMetodo();
-    
+
+	public void transicionaCaixa(Armazem armazem, Caixa caixa){
+        armazem.adicionaCaixa(caixa);
+        relogio.passaTempo(Caixa.TRANSICAO);
+
+    }
+
 }
