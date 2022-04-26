@@ -14,7 +14,7 @@ public class Caixa {
 
 	Relogio relogio = new Relogio();
 
-	// Metodos gerais
+	// Getters
 
 	public Relogio getRelogio() {
 		return relogio;
@@ -27,6 +27,8 @@ public class Caixa {
 	public int getNumProdutos() {
 		return numProdutos;
 	}
+
+	// Setters
 
 	public void addProduto(Produto produto) {
 		produtos[numProdutos++] = produto;
