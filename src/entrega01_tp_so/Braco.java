@@ -32,11 +32,12 @@ public abstract class Braco {
 
 	// Metodos gerais
 	public void lerPedidos() {
-		Pedido pedido = new Pedido();
+		
 		String s = MyIO.readLine();
 		int numEntradas = Integer.parseInt(s);
 
-		for (int i = 0; i <= numEntradas; i++) {
+		for (int i = 0; i < numEntradas; i++) {
+			Pedido pedido = new Pedido();
 			s = MyIO.readLine();// while (!s.equals("FIM")) {
 			if (s.indexOf(";") > -1) {
 				String[] stringArray = s.split(";");
@@ -46,11 +47,9 @@ public abstract class Braco {
 					pedido.setQuantProduto(Integer.parseInt(stringArray[1]));
 					pedido.setPrioridade(Integer.parseInt(stringArray[2]));
 				}
-
-				
-				//pedido.imprimir();
 			}
 			this.addPedido(pedido);
+			//this.pedidos[i].imprimir();
 		}
 	}
 

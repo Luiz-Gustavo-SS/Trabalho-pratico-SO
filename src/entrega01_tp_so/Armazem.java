@@ -1,7 +1,7 @@
 package entrega01_tp_so;
 
 public class Armazem {
-    private Caixa caixas[] = new Caixa[1000];
+    private Caixa caixas[] = new Caixa[100000];
     private int numCaixas = 0;
 
     // Getter

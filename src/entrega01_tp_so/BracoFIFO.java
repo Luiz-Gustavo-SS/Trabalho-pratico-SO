@@ -6,8 +6,7 @@ public class BracoFIFO extends Braco {
 	public void acionarMetodo() {
 		this.lerPedidos();
 		Armazem armazem = new Armazem();
-		System.out.print("verifica vetor Pedidos: " ); 
-		this.getPedidoPorPosicao(2).imprimir();
+		
 		for (int i = 0; i < this.getNumPedidoAtual(); i++) {
 			Pedido aux = this.getPedidoPorPosicao(i);
 			
@@ -19,14 +18,12 @@ public class BracoFIFO extends Braco {
 				caixa.getRelogio().getTempoAtual();
 				this.transicionaCaixa(armazem, caixa);
 				tempoExec = this.getRelogio().getTempoAtual();
-				System.out.println(i + " TempoExec: " + tempoExec);
-				System.out.println("Num Produtos Sobrando: " + aux.getQuantProduto());
 			}
-			
 			if (i > 0) {
-				this.getPedidoPorPosicao(i).setTempoEspera(this.getPedidoPorPosicao(i - 1).getTempoExecucao());
+				this.getPedidoPorPosicao(i).setTempoEspera(this.getPedidoPorPosicao(i - 1).getTempoRetorno());
 			}
 			this.getPedidoPorPosicao(i).setTempoExecucao(tempoExec);
+			//this.getPedidoPorPosicao(i).imprimir();
 		}
 	}
 
