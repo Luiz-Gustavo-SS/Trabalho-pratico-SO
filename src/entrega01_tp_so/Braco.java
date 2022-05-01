@@ -2,7 +2,7 @@ package entrega01_tp_so;
 
 public abstract class Braco {
 
-	private Pedido pedidos[] = new Pedido[200];
+	protected Pedido pedidos[] = new Pedido[200];
 	private int numPedidoAtual = 0;
 	Relogio relogio = new Relogio();
 
@@ -45,7 +45,11 @@ public abstract class Braco {
 				if (stringArray.length > 0) {
 					pedido.setNomeCliente(stringArray[0]);
 					pedido.setQuantProduto(Integer.parseInt(stringArray[1]));
+					if(Integer.parseInt(stringArray[2])!=0) {
 					pedido.setPrioridade(Integer.parseInt(stringArray[2]));
+					}else {
+						pedido.setPrioridade(1000);
+					}
 				}
 			}
 			this.addPedido(pedido);
