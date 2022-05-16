@@ -4,7 +4,7 @@ public abstract class Braco {
 
 	protected Pedido pedidos[] = new Pedido[200];
 	private int numPedidoAtual = 0;
-	Relogio relogio = new Relogio();
+	private Relogio relogio = new Relogio();
 
 	// Getter
 
@@ -60,8 +60,9 @@ public abstract class Braco {
 	public void embalar(Produto produto, Caixa caixa, int quantidadeInserir) {
 
 		// if (caixa.getNumProdutos() < Caixa.MAX_PRODUTOS) {
-		for (int i = 0; i < quantidadeInserir; i++)
+		for (int i = 0; i < quantidadeInserir; i++) {
 			caixa.addProduto(produto);
+		}
 		// }
 		// else if(caixa.getNumProdutos() == Caixa.MAX_PRODUTOS) {
 		relogio.passaTempo(Caixa.TEMPO_EMPACOTAR);

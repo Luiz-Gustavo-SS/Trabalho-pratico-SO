@@ -13,12 +13,10 @@ public class Pedido {
 
 	}
 
-	public Pedido(int numProduto, String nomeCliente, int prioridade, int tempoExecucao) {
+	public Pedido(int numProduto, String nomeCliente, int prioridade) {
 		this.setQuantProduto(numProduto);
 		this.setNomeCliente(nomeCliente);
 		this.setPrioridade(prioridade);
-		this.setTempoExecucao(tempoExecucao);
-
 	}
 
 	public int getQuantProduto() {
