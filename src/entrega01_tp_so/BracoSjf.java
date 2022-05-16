@@ -1,6 +1,6 @@
 package entrega01_tp_so;
 
-public class BracoSjf extends Braco {
+public class BracoSjf extends Braco implements Runnable {
 
 	@Override
 	public void acionarMetodo() {
@@ -39,6 +39,12 @@ public class BracoSjf extends Braco {
 			}
 			pedidos[j + 1] = pedidoAtual;
 		}
+	}
+
+	@Override
+	public void run() {
+		acionarMetodo();
+		
 	}
 
 }

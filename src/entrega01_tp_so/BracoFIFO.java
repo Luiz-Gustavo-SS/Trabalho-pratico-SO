@@ -1,6 +1,6 @@
 package entrega01_tp_so;
 
-public class BracoFIFO extends Braco {
+public class BracoFIFO extends Braco implements Runnable {
 
 	@Override
 	public void acionarMetodo() {
@@ -26,6 +26,12 @@ public class BracoFIFO extends Braco {
 			this.getPedidoPorPosicao(i).setTempoExecucao(tempoExec);
 			// this.getPedidoPorPosicao(i).imprimir();
 		}
+	}
+
+	@Override
+	public void run() {
+		acionarMetodo();
+		
 	}
 
 }
