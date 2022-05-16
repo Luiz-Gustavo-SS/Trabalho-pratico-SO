@@ -4,9 +4,8 @@ public class BracoFIFO extends Braco implements Runnable {
 
 	@Override
 	public void acionarMetodo() {
-		this.lerPedidos();
 		Armazem armazem = new Armazem();
-
+		this.ordenarPedidosPorTempoChegadaBubbleSort();
 		for (int i = 0; i < this.getNumPedidoAtual(); i++) {
 			Pedido aux = this.getPedidoPorPosicao(i);
 
@@ -27,11 +26,23 @@ public class BracoFIFO extends Braco implements Runnable {
 			// this.getPedidoPorPosicao(i).imprimir();
 		}
 	}
+	
+
+	public void ordenarPedidosPorTempoChegadaBubbleSort() {
+		for (int i = 0; i < this.getNumPedidoAtual(); i++) {
+			Pedido pedidoAtual = pedidos[i];
+			int j = i - 1;
+			while (j >= 0 && pedidoAtual.getTempoChegada() < pedidos[j].getTempoChegada()) {
+				pedidos[j + 1] = pedidos[j];
+				j--;
+			}
+			pedidos[j + 1] = pedidoAtual;
+		}
+	}
 
 	@Override
 	public void run() {
-		acionarMetodo();
-		
+		this.acionarMetodo();
 	}
 
 }

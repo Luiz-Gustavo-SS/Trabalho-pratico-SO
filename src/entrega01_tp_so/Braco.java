@@ -2,7 +2,7 @@ package entrega01_tp_so;
 
 public abstract class Braco {
 
-	protected Pedido pedidos[] = new Pedido[200];
+	protected Pedido pedidos[] = new Pedido[500];
 	private int numPedidoAtual = 0;
 	private Relogio relogio = new Relogio();
 
@@ -26,36 +26,15 @@ public abstract class Braco {
 
 	// Setter
 
+	public void setPedidos(Pedido[] pedidos) {
+		this.pedidos = pedidos;
+	}
+
 	public void addPedido(Pedido pedido) {
 		this.pedidos[numPedidoAtual++] = pedido;
 	}
 
 	// Metodos gerais
-	public void lerPedidos() {
-		
-		String s = MyIO.readLine();
-		int numEntradas = Integer.parseInt(s);
-
-		for (int i = 0; i < numEntradas; i++) {
-			Pedido pedido = new Pedido();
-			s = MyIO.readLine();// while (!s.equals("FIM")) {
-			if (s.indexOf(";") > -1) {
-				String[] stringArray = s.split(";");
-
-				if (stringArray.length > 0) {
-					pedido.setNomeCliente(stringArray[0]);
-					pedido.setQuantProduto(Integer.parseInt(stringArray[1]));
-					if(Integer.parseInt(stringArray[2])!=0) {
-					pedido.setPrioridade(Integer.parseInt(stringArray[2]));
-					}else {
-						pedido.setPrioridade(1000);
-					}
-				}
-			}
-			this.addPedido(pedido);
-			//this.pedidos[i].imprimir();
-		}
-	}
 
 	public void embalar(Produto produto, Caixa caixa, int quantidadeInserir) {
 
@@ -72,17 +51,15 @@ public abstract class Braco {
 	}
 
 	public abstract void acionarMetodo();
-
+	
 	public void transicionaCaixa(Armazem armazem, Caixa caixa) {
 		armazem.adicionaCaixa(caixa);
 		relogio.passaTempo(Caixa.TRANSICAO);
 	}
 
-	public double calculoTempoMedio() {
-		double resp = 0;
-		for (int i = 0; i < this.getNumPedidoAtual(); i++) {
-			resp += pedidos[i].getTempoRetorno();
-		}
-		return (resp / this.getNumPedidoAtual());
+	public double calculoTempoTotalDeFabricacao() {
+		return (pedidos[this.numPedidoAtual - 1].getTempoRetorno());
 	}
+	
+
 }

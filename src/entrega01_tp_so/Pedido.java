@@ -5,6 +5,7 @@ public class Pedido {
 	private int quantProduto;
 	private String nomeCliente;
 	private int prioridade;
+	private int tempoChegada;
 
 	private double tempoEspera;
 	private double tempoExecucao;
@@ -60,7 +61,7 @@ public class Pedido {
 	}
 
 	public void setTempoEspera(double tempoEspera) {
-		this.tempoEspera = tempoEspera;
+		this.tempoEspera = tempoEspera - this.getTempoChegada();
 	}
 
 	public double getTempoRetorno() {
@@ -76,7 +77,15 @@ public class Pedido {
 	}
 
 	public void imprimir() {
-		MyIO.println(this.getNomeCliente() + " ## " + this.getTempoEspera() + " ## " + this.getTempoExecucao());
+		System.out.println(this.getNomeCliente() + " ## " + this.getTempoEspera() + " ## " + this.getTempoExecucao());
+	}
+
+	public int getTempoChegada() {
+		return tempoChegada;
+	}
+
+	public void setTempoChegada(int tempoChegada) {
+		this.tempoChegada = tempoChegada;
 	}
 
 }
